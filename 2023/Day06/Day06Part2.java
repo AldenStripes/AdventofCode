@@ -26,8 +26,6 @@ public class Day06Part2 {
 		String temp2 = distances[0]+""+distances[1]+""+distances[2]+""+distances[3];
 		long timeAlloted = Long.parseLong(temp);
 		long distanceRecord = Long.parseLong(temp2);
-		System.out.println(timeAlloted);
-		System.out.println(distanceRecord);
 		int num = 0;
 		for (long j=1; j<timeAlloted; ++j) { //hold for j miliseconds
 			long cur = j*(timeAlloted-j);
