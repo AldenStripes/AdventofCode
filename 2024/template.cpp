@@ -12,14 +12,14 @@ int main() {
 
     string line;
     while (getline(File, line)) {
-        // If you are reading one num
-        /*
-            int num = stoi(line);
-        */
-
         // If you are just reading
         /*
         cout << line << '\n';
+        */
+
+        // If you are reading one num
+        /*
+            int num = stoi(line);
         */
 
         // If you are reading two space-separated nums
