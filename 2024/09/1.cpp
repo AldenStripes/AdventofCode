@@ -12,7 +12,6 @@ int main() {
 
     string line;
     getline(File, line);
-    cout << line.size() << '\n';
     vector<int> v;
     int id = 0;
     for (int i=0; i<line.size(); ++i) {
@@ -27,29 +26,20 @@ int main() {
             }
         }
     }
-    for (int i=0; i<v.size(); ++i) {
-        cout << v[i];
-    }
-    cout << '\n';
 
     ll ans = 0;
     for (int i=0, j=v.size()-1; i<v.size() && i!=j+1; ++i) {
-        cout << "i: " << i << ", v[i]: " << v[i] << ", j: " << j << ", v[j]: " << v[j] << '\n';
         if (v[i]==-1) {
             if (v[j]==-1) {
                 j --;
                 i --;
-                cout << "v[j] was ., decremented i and j\n";
             }   else {
                 ans += i*v[j];
-                cout << "v[j] was " << v[j] << ", i: " << i <<", (v[j]-'0'): " << v[j] << ", decremented j, added " << i*v[j] << "\n";
                 j --;
             }
         }   else {
             ans += i*v[i];
-            cout << "v[i] was " << v[i] << ", added " << i*v[i] << "\n";
         }
-        cout << "i: " << i << ", ans: " << ans << '\n';
     }
     cout << ans << '\n';
 }
