@@ -6,8 +6,8 @@ typedef pair<int, int> pi;
 #define all(i) i.begin(), i.end()
 const int inf = 0x3f3f3f3f;
 
-ll A = 2024, B = 0, C = 0;
-int op[] = {0,1,5,4,3,0};
+ll A = 47719761, B = 0, C = 0;
+int op[] = {2,4,1,5,7,5,0,3,4,1,1,6,5,5,3,0};
 string ans = "";
 
 ll combo(int operand) {
@@ -30,32 +30,38 @@ int main() {
     // for speed reasons not getting input from file
 
     for (int i=0; i<sizeof(op)/sizeof(op[0]); i+=2) {
-        if (i==sizeof(op)/sizeof(op[0])-1) { // no operand
-            break;
-        }
         int opcode = op[i], operand = op[i+1];
         switch (opcode) {
             case 0: 
-                A = trunc(A / pow(2, combo(operand)));
+                A = A / pow(2, combo(operand));
+                break;
             case 1:
                 B = B ^ operand;
+                break;
             case 2:
                 B = combo(operand)%8;
+                break;
             case 3:
                 if (A!=0) {
-                    i --; // jump 1
+                    i = operand-2; // jumps 
                 }
+                break;
             case 4:
                 B = B ^ C;
+                break;
             case 5:
                 ans += to_string(combo(operand)%8);
                 ans += ',';
+                break;
             case 6:
-                B = trunc(A / pow(2, combo(operand)));
+                B = A / pow(2, combo(operand));
+                break;
             case 7:
-                C = trunc(A / pow(2, combo(operand)));
+                C = A / pow(2, combo(operand));
+                break;
         }
     }
     
+    ans.pop_back();
     cout << ans << '\n';
 }
